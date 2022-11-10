@@ -1,0 +1,248 @@
+{
+  "stats": {
+    "suites": 4,
+    "tests": 6,
+    "passes": 3,
+    "pending": 2,
+    "failures": 1,
+    "start": "2022-11-08T19:15:09.348Z",
+    "end": "2022-11-08T19:16:16.607Z",
+    "duration": 46248,
+    "testsRegistered": 6,
+    "passPercent": 50,
+    "pendingPercent": 33.333333333333336,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "c9461d9b-19e8-4249-8009-b579dfeb73a7",
+      "title": "",
+      "fullFile": "cypress/e2e/authorizationPageObject.cy.js",
+      "file": "cypress/e2e/authorizationPageObject.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [
+        {
+          "title": "Authorization",
+          "fullTitle": "Authorization",
+          "timedOut": null,
+          "duration": 6463,
+          "state": "passed",
+          "speed": "medium",
+          "pass": true,
+          "fail": false,
+          "pending": false,
+          "context": null,
+          "code": "//   cy.visit('/index.php?rt=account/login');\n//   cy.get('#loginFrm_loginname').type(user.userName);\n//   cy.get('#loginFrm_password').type(user.password);\n//   cy.get('button[title=\"Login\"]').click();\n_AuthorizationPage.default.visit();\n_AuthorizationPage.default.submitLoginForm(_user.default.userName, _user.default.password); //   cy.get('h1.heading1').should('contain', user.firstName).and('contain', \"My Account\")\n\n_AccountPage.default.getUserNameFromHeading().should('contain', _user.default.firstName).and('contain', \"My Account\");\ncy.getCookie('AC_SF_8CEFDA09D5').should('exist');",
+          "err": {},
+          "uuid": "1fbef0ed-9bac-4db6-b968-553e9f362197",
+          "parentUUID": "c9461d9b-19e8-4249-8009-b579dfeb73a7",
+          "isHook": false,
+          "skipped": false
+        },
+        {
+          "title": "Test",
+          "fullTitle": "Test",
+          "timedOut": null,
+          "duration": 0,
+          "state": "pending",
+          "speed": null,
+          "pass": false,
+          "fail": false,
+          "pending": true,
+          "context": null,
+          "code": "",
+          "err": {},
+          "uuid": "bf84bb16-940e-4fe6-aea0-1d914b112eb3",
+          "parentUUID": "c9461d9b-19e8-4249-8009-b579dfeb73a7",
+          "isHook": false,
+          "skipped": false
+        }
+      ],
+      "suites": [],
+      "passes": [
+        "1fbef0ed-9bac-4db6-b968-553e9f362197"
+      ],
+      "failures": [],
+      "pending": [
+        "bf84bb16-940e-4fe6-aea0-1d914b112eb3"
+      ],
+      "skipped": [],
+      "duration": 6463,
+      "root": true,
+      "rootEmpty": false,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "e82181b6-4985-4a9c-ab1c-8f32b82c3c07",
+      "title": "",
+      "fullFile": "cypress/e2e/order.cy.js",
+      "file": "cypress/e2e/order.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [
+        {
+          "title": "Place order via search with helper",
+          "fullTitle": "Place order via search with helper",
+          "timedOut": null,
+          "duration": 16340,
+          "state": "passed",
+          "speed": "slow",
+          "pass": true,
+          "fail": false,
+          "pending": false,
+          "context": null,
+          "code": "// cy.setCookie(\"AC_SF_8CEFDA09D5\", user.AC_SF_8CEFDA09D5);\n// cy.visit('/');\n// searchExistingProduct('Benefit Bella Bamba');\ncy.visit('/index.php?rt=account/login');\ncy.get('#loginFrm_loginname').type(_user.default.userName);\ncy.get('#loginFrm_password').type(_user.default.password);\ncy.get('button[title=\"Login\"]').click();\ncy.get('h1.heading1').should('contain', _user.default.firstName).and('contain', \"My Account\"); // searchProduct('ck One Gift Set')\ncy.get('#filter_keyword').type('i').closest('form').submit();\n(0, _helper.searchProductWithRecursion)('Benefit Bella Bamba');\ncy.get('#product_quantity').clear().type('4');\ncy.get('.productpagecart').click();\ncy.get('#cart_checkout1').click();\ncy.get('#checkout_btn').click();\ncy.get('h1.heading1').should('contain', 'Your Order Has Been Processed!');\ncy.get('.contentpanel').should('contain', 'Thank you for shopping with us!').and('contain', 'Your order ').and('contain', 'has been created!');",
+          "err": {},
+          "uuid": "a29179f3-4985-4f94-9f07-cf7930381277",
+          "parentUUID": "e82181b6-4985-4a9c-ab1c-8f32b82c3c07",
+          "isHook": false,
+          "skipped": false
+        }
+      ],
+      "suites": [],
+      "passes": [
+        "a29179f3-4985-4f94-9f07-cf7930381277"
+      ],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 16340,
+      "root": true,
+      "rootEmpty": false,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "5a5237c5-e507-4a6f-bac9-8bd1ad469101",
+      "title": "",
+      "fullFile": "cypress/e2e/registration.cy.js",
+      "file": "cypress/e2e/registration.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [
+        {
+          "title": "Registration",
+          "fullTitle": "Registration",
+          "timedOut": null,
+          "duration": 0,
+          "state": "pending",
+          "speed": null,
+          "pass": false,
+          "fail": false,
+          "pending": true,
+          "context": null,
+          "code": "",
+          "err": {},
+          "uuid": "38df1ddb-7d8f-48df-8c69-525194480558",
+          "parentUUID": "5a5237c5-e507-4a6f-bac9-8bd1ad469101",
+          "isHook": false,
+          "skipped": false
+        },
+        {
+          "title": "Registration with faker.js",
+          "fullTitle": "Registration with faker.js",
+          "timedOut": null,
+          "duration": 16910,
+          "state": "passed",
+          "speed": "slow",
+          "pass": true,
+          "fail": false,
+          "pending": false,
+          "context": null,
+          "code": "cy.visit('/'); // console.log(user);\ncy.log(\"**Open registration page**\");\ncy.get('#customer_menu_top').click();\ncy.get('#accountFrm button').click();\ncy.log(\"**Fill the registration form**\");\ncy.get('#AccountFrm_firstname').type(user.firstName);\ncy.get('#AccountFrm_lastname').type(user.lastName);\ncy.get('#AccountFrm_email').type(user.email);\ncy.get('#AccountFrm_address_1').type(user.address);\ncy.get('#AccountFrm_city').type(user.city);\ncy.get('#AccountFrm_zone_id').select(1);\ncy.get('#AccountFrm_postcode').type(user.postcode);\ncy.get('#AccountFrm_country_id').select('United Kingdom');\ncy.get('#AccountFrm_loginname').type(user.userName);\ncy.get('#AccountFrm_password').type(user.password);\ncy.get('#AccountFrm_confirm').type(user.password);\ncy.get('#AccountFrm_newsletter0').click();\ncy.get('#AccountFrm_agree').check();\ncy.get('button[title=\"Continue\"]').click();\ncy.log(\"**Verify thank you message**\");\ncy.get('h1.heading1').should('contain', ' Your Account Has Been Created!');",
+          "err": {},
+          "uuid": "f55c8b0d-859d-451f-83fe-bc47b3d1d744",
+          "parentUUID": "5a5237c5-e507-4a6f-bac9-8bd1ad469101",
+          "isHook": false,
+          "skipped": false
+        }
+      ],
+      "suites": [],
+      "passes": [
+        "f55c8b0d-859d-451f-83fe-bc47b3d1d744"
+      ],
+      "failures": [],
+      "pending": [
+        "38df1ddb-7d8f-48df-8c69-525194480558"
+      ],
+      "skipped": [],
+      "duration": 16910,
+      "root": true,
+      "rootEmpty": false,
+      "_timeout": 2000
+    },
+    {
+      "uuid": "51815bef-08b8-4b29-b338-c1c16627937d",
+      "title": "",
+      "fullFile": "cypress/e2e/authorization.cy.js",
+      "file": "cypress/e2e/authorization.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [
+        {
+          "title": "Authorization",
+          "fullTitle": "Authorization",
+          "timedOut": null,
+          "duration": 6535,
+          "state": "failed",
+          "speed": null,
+          "pass": false,
+          "fail": true,
+          "pending": false,
+          "context": null,
+          "code": "cy.visit('/index.php?rt=account/login');\ncy.get('#loginFrm_loginname1').type(_user.default.userName);\ncy.get('#loginFrm_password').type(_user.default.password);\ncy.get('button[title=\"Login\"]').click();\ncy.get('h1.heading1').should('contain', _user.default.firstName).and('contain', \"My Account\");\ncy.getCookie('AC_SF_8CEFDA09D5').should('exist');",
+          "err": {
+            "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#loginFrm_loginname1`, but never found it.",
+            "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `#loginFrm_loginname1`, but never found it.\n    at Context.eval (webpack:///./cypress/e2e/authorization.cy.js:7:5)",
+            "diff": null
+          },
+          "uuid": "32f6b876-e064-4aa0-be8a-ab650990c4e9",
+          "parentUUID": "51815bef-08b8-4b29-b338-c1c16627937d",
+          "isHook": false,
+          "skipped": false
+        }
+      ],
+      "suites": [],
+      "passes": [],
+      "failures": [
+        "32f6b876-e064-4aa0-be8a-ab650990c4e9"
+      ],
+      "pending": [],
+      "skipped": [],
+      "duration": 6535,
+      "root": true,
+      "rootEmpty": false,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "configFile": "reporter-config.json",
+        "reportDir": "cypress/results",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
