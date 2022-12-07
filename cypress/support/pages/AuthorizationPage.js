@@ -18,6 +18,14 @@ class AuthorizationPage extends BasePage{
         return cy.get('button[title="Login"]');
     }
 
+    getAlertMessage(){
+        return cy.get('.alert-error');
+    }
+
+    getContinueButton(){
+        return cy.get('#accountFrm button');
+    }
+
     typeTextInLoginField(userName){
         cy.log(`Type username ${userName} in login field`);
         this.getLoginField().type(userName);
@@ -26,6 +34,16 @@ class AuthorizationPage extends BasePage{
     typeTextInPasswordField(password){
         cy.log(`Type password ${password} in password field`);
         this.getPasswordField().type(password);
+    }
+
+    clickOnLoginButton(){
+        cy.log('Click on Login button');
+        this.getLoginButton().click();
+    }
+
+    clickOnContinueButton(){
+        cy.log('Click on Continue button');
+        this.getContinueButton().click();
     }
 
     submitLoginForm(userName, password){

@@ -24,12 +24,54 @@ it('Authorization', () => {
   cy.getCookie('AC_SF_8CEFDA09D5').should('exist');
 })
 
-cy.ge
-
 it('Test inheritance', () => {
   // const basePage = new BasePage();
   authorizationPage.visit();
 
   authorizationPage.performSearch('i');
   // basePage.performSearch('i');
+})
+
+it('Alert message - correct username, incorrect password', () => {
+  authorizationPage.visit();
+  authorizationPage.submitLoginForm(user.userName, '1');
+
+  authorizationPage.getAlertMessage().should('contain', 'Error: Incorrect login or password provided.');
+})
+
+it('Alert message - incorrect username, correct password', () => {
+  authorizationPage.visit();
+  authorizationPage.submitLoginForm('q', user.password);
+
+  authorizationPage.getAlertMessage().should('contain', 'Error: Incorrect login or password provided.');
+})
+
+it('Alert message - incorrect username, incorrect password', () => {
+  authorizationPage.visit();
+  authorizationPage.submitLoginForm('q', '1');
+
+  authorizationPage.getAlertMessage().should('contain', 'Error: Incorrect login or password provided.');
+})
+
+it('Alert message - correct username, empty password', () => {
+  authorizationPage.visit();
+  authorizationPage.typeTextInLoginField(user.userName);
+  authorizationPage.clickOnLoginButton();
+
+  authorizationPage.getAlertMessage().should('contain', 'Error: Incorrect login or password provided.');
+})
+
+it('Alert message - empty username, correct password', () => {
+  authorizationPage.visit();
+  authorizationPage.typeTextInPasswordField(user.password);
+  authorizationPage.clickOnLoginButton();
+
+  authorizationPage.getAlertMessage().should('contain', 'Error: Incorrect login or password provided.');
+})
+
+it('Alert message - empty username, empty password', () => {
+  authorizationPage.visit();
+  authorizationPage.clickOnLoginButton();
+  
+  authorizationPage.getAlertMessage().should('contain', 'Error: Incorrect login or password provided.');
 })
